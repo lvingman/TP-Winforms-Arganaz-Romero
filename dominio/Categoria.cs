@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP_Winforms.negocio
+namespace dominio
 {
-    internal class MarcaNegocio
+    public class Categoria
     {
+        public int ID { get; set; }
+
+        public string Descripcion { get; set; }
     }
 }

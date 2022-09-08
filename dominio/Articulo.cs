@@ -4,15 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP_Winforms.dominio
+namespace dominio
 {
-    class Articulo
+    public class Articulo
     {
         public string Codigo { get; set; }
 
         public string Nombre { get; set; }
 
         public string Descripcion { get; set; }
+
+      //  public Categoria Categoria { get; set; }
+
+        public Marca Marca { get; set; }
 
         //Revisar Marca y Categoria
 

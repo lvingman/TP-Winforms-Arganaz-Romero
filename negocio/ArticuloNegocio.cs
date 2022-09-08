@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using TP_Winforms.dominio;
+using dominio;
 
-namespace TP_Winforms.negocio
+namespace negocio
 {
-    class ArticuloNegocio
+    public class ArticuloNegocio
     {
         public List<Articulo> listar()
         {
@@ -20,7 +20,7 @@ namespace TP_Winforms.negocio
             try{
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Codigo, Nombre, Descripcion, ImagenURL, Precio from ARTICULOS";
+                comando.CommandText = "Select A.Codigo, A.Nombre,A.Descripcion, A.ImagenUrl, A.Precio, M.Descripcion Marca from ARTICULOS A, MARCAS M where M.Id =A.IdMarca";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -34,6 +34,8 @@ namespace TP_Winforms.negocio
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.URLImagen = (string)lector["ImagenURL"];
                     aux.Precio = (decimal)lector["Precio"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)lector["Marca"];
                     
                     lista.Add(aux);
 

@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TP_Winforms.dominio;
-using TP_Winforms.negocio;
+using dominio;
+using negocio;
 
 namespace TP_Winforms
 {
@@ -44,7 +44,7 @@ namespace TP_Winforms
             }
             catch (Exception ex)
             {
-                pbxArticulo.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");
+                pbxArticulo.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");              
             }
         }
 
