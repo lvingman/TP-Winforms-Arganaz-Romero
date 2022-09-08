@@ -18,7 +18,7 @@ namespace TP_Winforms.dominio
 
         public string URLImagen { get; set; }
 
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
 
     }
 }

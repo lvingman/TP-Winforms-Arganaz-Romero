@@ -20,7 +20,7 @@ namespace TP_Winforms.negocio
             try{
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Codigo, Nombre, Descripcion, ImagenURL from ARTICULOS";
+                comando.CommandText = "Select Codigo, Nombre, Descripcion, ImagenURL, Precio from ARTICULOS";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -33,6 +33,7 @@ namespace TP_Winforms.negocio
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.URLImagen = (string)lector["ImagenURL"];
+                    aux.Precio = (decimal)lector["Precio"];
                     
                     lista.Add(aux);
 
