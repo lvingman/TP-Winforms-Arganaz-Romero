@@ -38,30 +38,33 @@
             // 
             this.dgvArticulos.AccessibleName = "dgvArticulos";
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 180);
+            this.dgvArticulos.Location = new System.Drawing.Point(11, 65);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 72;
             this.dgvArticulos.RowTemplate.Height = 31;
-            this.dgvArticulos.Size = new System.Drawing.Size(776, 357);
+            this.dgvArticulos.Size = new System.Drawing.Size(633, 330);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(810, 180);
+            this.pbxArticulo.Location = new System.Drawing.Point(656, 68);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(358, 357);
+            this.pbxArticulo.Size = new System.Drawing.Size(327, 327);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
             // 
             // frmArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1197, 729);
+            this.ClientSize = new System.Drawing.Size(978, 485);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulos);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmArticulos";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
