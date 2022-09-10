@@ -53,5 +53,15 @@ namespace negocio
 
 
         }
+
+        public void agregar(Articulo nuevo)
+        {
+
+        }
+
+        public void modificar(Articulo modificar)
+        {
+
+        }
     }
 }
