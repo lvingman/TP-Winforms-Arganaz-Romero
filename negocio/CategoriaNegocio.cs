@@ -13,26 +13,28 @@ namespace negocio
         {
             List<Categoria> lista = new List<Categoria>();
             AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setearConsulta("Select Id, Descripcion from CATEGORIAS")
+                datos.setearConsulta("Select Id, Descripcion from CATEGORIAS");
                 datos.ejecutarLectura();
 
-                while (datos.Lector.Read())
+                 while (datos.Lector.Read())
                 {
-                    Categoria aux = new Categoria();
+                   Categoria aux = new Categoria();
                     aux.ID = (int)datos.Lector["Id"];
                     aux.Descripcion = (String)datos.Lector["Descripcion"];
 
-                    lista.Add(aux);
-
+                   lista.Add(aux);            
                 }
+                 return lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }

@@ -48,5 +48,11 @@ namespace TP_Winforms
             }
         }
 
+        private void bntAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+
+        }
     }
 }
