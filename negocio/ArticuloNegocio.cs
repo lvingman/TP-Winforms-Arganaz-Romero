@@ -60,7 +60,15 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion) values ('"+nuevo.Codigo+"','"+nuevo.Nombre+"','"+nuevo.Descripcion+"')");
+                datos.setearConsulta(Diccionario.AGREGAR_ARTICULO);
+                datos.setearParametro("@codigo", nuevo.Codigo);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@descripcion", nuevo.Descripcion);
+                datos.setearParametro("@idMarca", nuevo.Marca.ID);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.ID);
+                datos.setearParametro("@imagen", nuevo.URLImagen);
+                datos.setearParametro("@precio", nuevo.Precio);
+                datos.setearParametro("@estado", 1);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

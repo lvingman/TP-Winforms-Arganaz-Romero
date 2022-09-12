@@ -14,19 +14,23 @@ namespace TP_Winforms
 {
     public partial class frmAltaArticulo : Form
     {
+        private void frmAltaArticulo_Load(object sender, EventArgs e)
+        {
+            CategoriaNegocio catNegocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            try
+            {
+                cboCategoria.DataSource = catNegocio.listar();
+                cboMarca.DataSource = marcaNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         public frmAltaArticulo()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -41,9 +45,14 @@ namespace TP_Winforms
 
             try
             {
+
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.Marca = (Marca)cboMarca.SelectedItem;
+                nuevo.Categoria = (Categoria)cboCategoria.SelectedItem;
+                nuevo.URLImagen = txtImagen.Text;
+                nuevo.Precio = Decimal.Parse(txtPrecio.Text);
 
                 negocio.agregar(nuevo);
                 MessageBox.Show("Agregaste Exitosamente");
@@ -55,5 +64,6 @@ namespace TP_Winforms
                 MessageBox.Show(ex.ToString());
             }
         }
+
     }
 }
