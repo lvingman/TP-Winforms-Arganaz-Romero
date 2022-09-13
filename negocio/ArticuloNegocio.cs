@@ -13,31 +13,27 @@ namespace negocio
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
 
-            try{
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select A.Codigo, A.Nombre,A.Descripcion, A.ImagenUrl, A.Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id=A.IdMarca and C.Id=A.IdCategoria";
-                comando.Connection = conexion;
 
-                conexion.Open();
-                lector = comando.ExecuteReader();
+            try
+            {
+                datos.setearConsulta(Diccionario.LISTAR_ARTICULOS);
+                datos.ejecutarLectura();
 
-                while (lector.Read())
+
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
-                    aux.URLImagen = (string)lector["ImagenURL"];
-                    aux.Precio = (decimal)lector["Precio"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.URLImagen = (string)datos.Lector["ImagenURL"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)lector["Categoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     
                     lista.Add(aux);
 

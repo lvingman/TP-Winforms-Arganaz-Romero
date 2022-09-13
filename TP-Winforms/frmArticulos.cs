@@ -24,10 +24,8 @@ namespace TP_Winforms
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulos = negocio.listar();
-            dgvArticulos.DataSource = listaArticulos;
-            cargarImagen(listaArticulos[0].URLImagen);
+            cargar();
+            dgvArticulos.Columns["URLImagen"].Visible = false;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -48,11 +46,33 @@ namespace TP_Winforms
             }
         }
 
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulos = negocio.listar();
+                dgvArticulos.DataSource = listaArticulos;
+
+
+                cargarImagen(listaArticulos[0].URLImagen);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No hay articulos dados de alta hasta el momento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
         private void bntAgregar_Click(object sender, EventArgs e)
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
-
+            cargar();
         }
     }
 }

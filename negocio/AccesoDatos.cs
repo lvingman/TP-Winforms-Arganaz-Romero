@@ -22,7 +22,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true");
+            conexion = new SqlConnection(Diccionario.CONEXION_SERVER);
             comando = new SqlCommand(); 
         }
         public void setearConsulta(string consulta)
@@ -34,6 +34,7 @@ namespace negocio
         public void ejecutarLectura()
         {
             comando.Connection = conexion;
+
             try
             {
                 conexion.Open();
@@ -41,8 +42,9 @@ namespace negocio
             }
             catch (Exception ex)
             {
+
                 throw ex;
-            }          
+            }
         }
 
         public void setearParametro(string nombre, object valor)
