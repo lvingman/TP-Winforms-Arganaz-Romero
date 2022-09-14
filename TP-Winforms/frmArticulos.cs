@@ -25,13 +25,16 @@ namespace TP_Winforms
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             cargar();
-            dgvArticulos.Columns["URLImagen"].Visible = false;
+            ocultarColumnas();
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
+            if(dgvArticulos.CurrentRow != null)
+            {
             Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.URLImagen);
+            }
         }
 
         private void cargarImagen(string imagen)
@@ -67,6 +70,13 @@ namespace TP_Winforms
             }
         }
 
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["URLImagen"].Visible = false;
+        }
+
+
+
 
         private void bntAgregar_Click(object sender, EventArgs e)
         {
@@ -75,6 +85,7 @@ namespace TP_Winforms
             cargar();
         }
 
+<<<<<<< Updated upstream
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
@@ -82,6 +93,30 @@ namespace TP_Winforms
             frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
             modificar.ShowDialog();
             cargar();
+=======
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            dgvArticulos.DataSource = null;
+            
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+
+            }
+            else
+            {
+                
+                listaFiltrada = listaArticulos;
+
+            }
+
+            dgvArticulos.DataSource = listaFiltrada;
+            ocultarColumnas();
+
+>>>>>>> Stashed changes
         }
     }
 }
