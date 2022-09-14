@@ -14,6 +14,7 @@ namespace TP_Winforms
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
             CategoriaNegocio catNegocio = new CategoriaNegocio();
@@ -21,16 +22,39 @@ namespace TP_Winforms
             try
             {
                 cboCategoria.DataSource = catNegocio.listar();
+                cboCategoria.ValueMember = "ID";
+                cboCategoria.DisplayMember = "Descripcion";
                 cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.ValueMember = "ID";
+                cboMarca.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtImagen.Text = articulo.URLImagen;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                    cboCategoria.SelectedValue = articulo.Categoria.ID;
+                    cboMarca.SelectedValue = articulo.Marca.ID;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
+       
         public frmAltaArticulo()
         {
             InitializeComponent();
+            Text = "Nuevo Articulo";
+        }
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -39,23 +63,34 @@ namespace TP_Winforms
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Articulo nuevo = new Articulo();
+        {       
             ArticuloNegocio negocio = new ArticuloNegocio();    
 
             try
             {
+                if (articulo == null)
+                    articulo = new Articulo();
 
-                nuevo.Codigo = txtCodigo.Text;
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.Marca = (Marca)cboMarca.SelectedItem;
-                nuevo.Categoria = (Categoria)cboCategoria.SelectedItem;
-                nuevo.URLImagen = txtImagen.Text;
-                nuevo.Precio = Decimal.Parse(txtPrecio.Text);
+                articulo.Codigo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+                articulo.URLImagen = txtImagen.Text;
+                articulo.Precio = Decimal.Parse(txtPrecio.Text);
 
-                negocio.agregar(nuevo);
-                MessageBox.Show("Agregaste Exitosamente");
+               if (articulo.Id != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Modificado Exitosamente");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Agregaste Exitosamente");
+                }
+                
+
                 Close();
 
             }

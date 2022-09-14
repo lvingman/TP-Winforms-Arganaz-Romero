@@ -25,14 +25,17 @@ namespace negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.URLImagen = (string)datos.Lector["ImagenURL"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
+                    aux.Marca.ID = (int)datos.Lector["IdMarca"];
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     
                     lista.Add(aux);
@@ -78,9 +81,32 @@ namespace negocio
             }
         }
 
-        public void modificar(Articulo modificar)
+        public void modificar(Articulo articulo)
         {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update ARTICULOS set Codigo = @Codigo , Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria= @IdCategoria, ImagenUrl = @ImagenUrl, Precio = @Precio where Id= @Id");
+                datos.setearParametro("@Codigo", articulo.Codigo);
+                datos.setearParametro("@Nombre", articulo.Nombre);
+                datos.setearParametro("@Descripcion", articulo.Descripcion);
+                datos.setearParametro("@IdMarca", articulo.Marca.ID);
+                datos.setearParametro("@IdCategoria", articulo.Categoria.ID);
+                datos.setearParametro("@ImagenUrl", articulo.URLImagen);
+                datos.setearParametro("@Precio", articulo.Precio);
+                datos.setearParametro("@Id", articulo.Id);
 
+                datos.ejecutarAccion();
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

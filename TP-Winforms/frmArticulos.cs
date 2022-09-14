@@ -53,7 +53,7 @@ namespace TP_Winforms
             {
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
-
+                dgvArticulos.Columns["Id"].Visible = false;
 
                 cargarImagen(listaArticulos[0].URLImagen);
             }
@@ -72,6 +72,15 @@ namespace TP_Winforms
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }
