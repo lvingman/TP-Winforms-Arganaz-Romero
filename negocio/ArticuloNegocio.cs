@@ -108,5 +108,74 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta;
+                if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + "Precio > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + "Precio < " + filtro;
+                            break;
+                        default:
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + "Precio = " + filtro;
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '"  + filtro + "%' ";
+                            break;
+                        case "Termina con":
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + " ' ";
+                            break;
+                        default:
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + " %' ";
+                            break;
+                    }
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.URLImagen = (string)datos.Lector["ImagenURL"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Marca = new Marca();
+                    aux.Marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
+                    lista.Add(aux);
+
+                }
+                return lista;
+
+               
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
