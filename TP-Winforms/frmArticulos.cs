@@ -173,5 +173,23 @@ namespace TP_Winforms
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow is null)
+            {
+                MessageBox.Show("Seleccione un articulo por favor...");
+            }
+            else
+            {
+                Articulo articuloSeleccionado;
+                articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+                frmDetalles detalle = new frmDetalles(articuloSeleccionado);
+
+
+                detalle.ShowDialog();
+            }
+        }
     }
 }
