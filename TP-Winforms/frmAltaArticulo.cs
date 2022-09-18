@@ -61,12 +61,67 @@ namespace TP_Winforms
         {
             this.Close();
         }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {       
-            ArticuloNegocio negocio = new ArticuloNegocio();    
+            ArticuloNegocio negocio = new ArticuloNegocio();
 
-            try
+
+            bool validar = false;
+
+            if (String.IsNullOrEmpty(txtCodigo.Text))
+            {
+                txtCodigo.BackColor = Color.LightCoral;
+                validar = true;
+            }
+            else
+                txtCodigo.BackColor = Color.White;
+            if (String.IsNullOrEmpty(txtNombre.Text))
+            {
+                txtNombre.BackColor = Color.LightCoral;
+                validar = true;
+            }
+            else
+                txtNombre.BackColor = Color.White;
+            if (String.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                txtDescripcion.BackColor = Color.LightCoral;
+                validar = true;
+            }
+            else
+                txtDescripcion.BackColor = Color.White;
+            
+            if(soloNumeros(txtPrecio.Text) == false) {                           
+                txtPrecio.Text = string.Empty;
+                txtPrecio.BackColor = Color.LightCoral;
+                validar = true;
+            }
+            else
+                txtPrecio.BackColor = Color.White;
+            
+
+
+
+            if (String.IsNullOrEmpty(txtPrecio.Text))
+            {
+                txtPrecio.BackColor = Color.LightCoral;
+                validar = true;
+            }
+            else
+                txtPrecio.BackColor = Color.White;
+
+            if (validar == false)
+            {
+                try
             {
                 if (articulo == null)
                     articulo = new Articulo();
@@ -78,9 +133,13 @@ namespace TP_Winforms
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
                 articulo.URLImagen = txtImagen.Text;
                 articulo.Precio = Decimal.Parse(txtPrecio.Text);
+            
 
-               if (articulo.Id != 0)
-                {
+
+               
+
+                if (articulo.Id != 0)
+                {                  
                     negocio.modificar(articulo);
                     MessageBox.Show("Modificado Exitosamente");
                 }
@@ -97,6 +156,7 @@ namespace TP_Winforms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
             }
         }
 

@@ -53,7 +53,7 @@
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(40, 13);
             this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Cogido";
+            this.lblCodigo.Text = "Código";
             // 
             // lblNombre
             // 
@@ -71,32 +71,36 @@
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 2;
-            this.lblDescripcion.Text = "Descripcion";
+            this.lblDescripcion.Text = "Descripción";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(201, 34);
+            this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigo.Location = new System.Drawing.Point(199, 31);
+            this.txtCodigo.MaxLength = 50;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(186, 20);
             this.txtCodigo.TabIndex = 3;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(201, 67);
+            this.txtNombre.Location = new System.Drawing.Point(199, 61);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(186, 20);
             this.txtNombre.TabIndex = 4;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(201, 96);
+            this.txtDescripcion.Location = new System.Drawing.Point(199, 91);
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(186, 20);
             this.txtDescripcion.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(50, 317);
+            this.btnAceptar.Location = new System.Drawing.Point(58, 298);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(114, 45);
             this.btnAceptar.TabIndex = 6;
@@ -106,7 +110,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(276, 316);
+            this.btnCancelar.Location = new System.Drawing.Point(265, 298);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(109, 46);
             this.btnCancelar.TabIndex = 7;
@@ -156,14 +160,16 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(201, 214);
+            this.txtPrecio.Location = new System.Drawing.Point(199, 209);
+            this.txtPrecio.MaxLength = 20;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(186, 20);
             this.txtPrecio.TabIndex = 15;
             // 
             // txtImagen
             // 
-            this.txtImagen.Location = new System.Drawing.Point(201, 185);
+            this.txtImagen.Location = new System.Drawing.Point(199, 178);
+            this.txtImagen.MaxLength = 200;
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(186, 20);
             this.txtImagen.TabIndex = 14;
@@ -172,8 +178,8 @@
             // 
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(201, 125);
-            this.cboMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMarca.Location = new System.Drawing.Point(199, 117);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(2);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(186, 21);
             this.cboMarca.TabIndex = 16;
@@ -182,8 +188,8 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(201, 155);
-            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCategoria.Location = new System.Drawing.Point(201, 147);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(186, 21);
             this.cboCategoria.TabIndex = 17;

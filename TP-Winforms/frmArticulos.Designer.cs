@@ -108,6 +108,7 @@
             // 
             this.txtFiltro.Location = new System.Drawing.Point(46, 21);
             this.txtFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFiltro.MaxLength = 50;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(122, 20);
             this.txtFiltro.TabIndex = 4;
@@ -172,6 +173,7 @@
             // txtFiltroAvanzado
             // 
             this.txtFiltroAvanzado.Location = new System.Drawing.Point(402, 433);
+            this.txtFiltroAvanzado.MaxLength = 150;
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(242, 20);
             this.txtFiltroAvanzado.TabIndex = 11;

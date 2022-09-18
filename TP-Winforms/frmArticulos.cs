@@ -98,12 +98,21 @@ namespace TP_Winforms
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
+
             {
+                if(dgvArticulos.CurrentRow == null) { 
+                MessageBox.Show("Selecciona un registro de articulo!");
+                    cargar();
+                return;
+                }
+
                 Articulo seleccionado;
                 seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
                 modificar.ShowDialog();
                 cargar();
+                
+              
             }
             catch (Exception ex)
             {
@@ -224,6 +233,12 @@ namespace TP_Winforms
             Articulo seleccionado;
             try
             {
+                if(dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Debes seleccionar un registro para borrar...");
+                    cargar();
+                    return;
+                }
                 DialogResult respuesta= MessageBox.Show("¿Estás seguro que quieres eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes) {
                 seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -245,6 +260,7 @@ namespace TP_Winforms
                 if (dgvArticulos.CurrentRow is null)
                 {
                     MessageBox.Show("Seleccione un articulo por favor...");
+                    cargar();
                 }
                 else
                 {

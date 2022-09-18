@@ -116,7 +116,7 @@ namespace negocio
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("delete from ARTICULOS where Id= @id");
                 datos.setearParametro("id", id);
-                datos.ejecutarAccion();
+                datos.ejecutarAccion(); 
             }
             catch ( Exception ex)
             {
@@ -155,10 +155,10 @@ namespace negocio
                             consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '"  + filtro + "%' ";
                             break;
                         case "Termina con":
-                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + " ' ";
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + "' ";
                             break;
                         default:
-                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + " %' ";
+                            consulta = Diccionario.CONSULTA_FILTRO_AVANZADO + campo + " like '%" + filtro + "%' ";
                             break;
                     }
                 }
