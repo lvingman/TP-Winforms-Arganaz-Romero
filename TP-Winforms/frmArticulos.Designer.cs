@@ -60,13 +60,13 @@
             this.dgvArticulos.RowHeadersWidth = 72;
             this.dgvArticulos.RowTemplate.Height = 31;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(800, 330);
+            this.dgvArticulos.Size = new System.Drawing.Size(754, 330);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(825, 46);
+            this.pbxArticulo.Location = new System.Drawing.Point(782, 46);
             this.pbxArticulo.Margin = new System.Windows.Forms.Padding(2);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(327, 327);
@@ -178,7 +178,7 @@
             // 
             // btnFiltroAvanzado
             // 
-            this.btnFiltroAvanzado.Location = new System.Drawing.Point(660, 431);
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(663, 430);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(125, 23);
             this.btnFiltroAvanzado.TabIndex = 12;
@@ -188,7 +188,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(731, 381);
+            this.btnEliminar.Location = new System.Drawing.Point(685, 381);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(80, 27);
             this.btnEliminar.TabIndex = 13;
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 469);
+            this.ClientSize = new System.Drawing.Size(1127, 469);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnFiltroAvanzado);
@@ -228,6 +228,8 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(1143, 508);
+            this.MinimumSize = new System.Drawing.Size(1143, 508);
             this.Name = "frmArticulos";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
