@@ -107,7 +107,7 @@ namespace TP_Winforms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Seleccione para modificar");
             }
           
         }
