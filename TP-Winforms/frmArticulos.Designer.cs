@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 436);
+            this.label1.Location = new System.Drawing.Point(335, 389);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 6;
@@ -136,7 +136,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 436);
+            this.label2.Location = new System.Drawing.Point(510, 389);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 7;
@@ -145,7 +145,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(364, 436);
+            this.label3.Location = new System.Drawing.Point(685, 389);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 8;
@@ -155,7 +155,7 @@
             // 
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Location = new System.Drawing.Point(62, 433);
+            this.cboCampo.Location = new System.Drawing.Point(383, 386);
             this.cboCampo.Name = "cboCampo";
             this.cboCampo.Size = new System.Drawing.Size(121, 21);
             this.cboCampo.TabIndex = 9;
@@ -165,14 +165,14 @@
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(237, 433);
+            this.cboCriterio.Location = new System.Drawing.Point(558, 386);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(121, 21);
             this.cboCriterio.TabIndex = 10;
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(402, 433);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(723, 386);
             this.txtFiltroAvanzado.MaxLength = 150;
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(242, 20);
@@ -180,7 +180,7 @@
             // 
             // btnFiltroAvanzado
             // 
-            this.btnFiltroAvanzado.Location = new System.Drawing.Point(663, 430);
+            this.btnFiltroAvanzado.Location = new System.Drawing.Point(984, 383);
             this.btnFiltroAvanzado.Name = "btnFiltroAvanzado";
             this.btnFiltroAvanzado.Size = new System.Drawing.Size(125, 23);
             this.btnFiltroAvanzado.TabIndex = 12;
@@ -190,7 +190,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(685, 381);
+            this.btnEliminar.Location = new System.Drawing.Point(221, 381);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(80, 27);
             this.btnEliminar.TabIndex = 13;
@@ -213,7 +213,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1127, 469);
+            this.ClientSize = new System.Drawing.Size(1127, 422);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnFiltroAvanzado);
@@ -231,8 +231,8 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1143, 508);
-            this.MinimumSize = new System.Drawing.Size(1143, 508);
+            this.MaximumSize = new System.Drawing.Size(1143, 461);
+            this.MinimumSize = new System.Drawing.Size(1143, 461);
             this.Name = "frmArticulos";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
